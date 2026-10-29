@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="An ADHD-friendly manual for keeping Downloads and Desktop under control — ten-minute reset, one-decision triage, safe delete vs archive, and a rescue plan.">
+<title>Where Local AI Actually Helps — Downloads &amp; Desktop Taming Handbook</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header>
+  <p class="bookmark"><span aria-hidden="true">🗂️</span> <a href="index.html">Downloads &amp; Desktop Taming Handbook</a></p>
+  <nav aria-label="Site pages">
+    <a href="index.html">Start Here</a> · <a href="01-why-it-piles-up.html">1. Why It Piles Up</a> · <a href="02-ten-minute-weekly-reset.html">2. Ten-Minute Reset</a> · <a href="03-one-decision-triage.html">3. Triage Rules</a> · <a href="04-naming-that-survives.html">4. Naming</a> · <a href="05-safe-delete-vs-archive.html">5. Delete vs. Archive</a> · <a href="06-the-rescue-plan.html">6. Rescue Plan</a> · <a href="07-local-ai-triage.html" aria-current="page">7. Local AI</a> · <a href="checklist-reset-day.html">Reset-Day Checklist</a> · <a href="decision-card.html">Decision Card</a> · <a href="glossary.html">Glossary</a>
+  </nav>
+</header>
+<main id="content">
+<h1 id="chapter-7-where-local-ai-actually-helps">Chapter 7: Where Local AI Actually Helps</h1>
+<p>This handbook is deliberately AI-light: ten minutes a week and six yes/no
+questions don't need a machine learning model. But since "could a local LLM
+just... do my files?" is a fair question — and one we get constantly — here's
+an honest map of where an AI sitting on your own laptop genuinely helps, where
+it's neutral, and where it will actively make things worse.</p>
+<p>The short version: <strong>local AI is a good reading assistant and a dangerous
+great clicker.</strong> It shines at the tasks you avoid because they're <em>reading</em>,
+and it should be kept away from the tasks where a mistake is expensive.</p>
+<h2 id="what-local-models-are-good-at-here">What local models are good at here</h2>
+<h3 id="reading-piles-summarizing-cheaply">Reading piles, summarizing cheaply</h3>
+<p>Give it the fifteen mystery PDFs you can't place, and it will tell you —
+locally, nothing uploaded — "these three are duplicates; this one is your
+wife's visa paperwork; this one is a course syllabus from 2024." It reads fast
+and untiringly. That's genuinely useful, because reading-is-the-bottleneck is
+exactly the step that makes triage slots feel like meetings. The judgment
+stays yours; the summarizing is outsourced.</p>
+<h3 id="suggesting-names-and-homes-advice-only">Suggesting names and homes (advice only)</h3>
+<p>Paste a list of filenames — just the names, no contents — into a local model
+with the prompt: <em>"suggest tidy archive-folder names for these, grouped, flag
+the ones that look like installers or duplicates."</em> You get a sorting plan in
+seconds, which you can then execute yourself with the
+<a href="decision-card.html">Decision Card</a> in one hand. The model is a
+second opinion, not a hand on your mouse.</p>
+<h3 id="drafting-rules-youd-never-write">Drafting rules you'd never write</h3>
+<p>Small local models are decent at turning vague habits into concrete rules:
+"every file that starts with <code>invoice</code> goes to <code>Filing/Reference/invoices/</code>,
+every <code>.exe</code> older than 30 days is deleted first, everything else ask me."
+Hand that rule-set to a <em>script</em> (not the model; see below) and it becomes your
+machine-fast pre-triage.</p>
+<h2 id="what-it-is-neutral-at">What it is neutral at</h2>
+<ul>
+<li><strong>Mass rename.</strong> Tools like PowerRename or a one-line <code>rename</code> script are
+  faster, free, deterministic, and offline. Use the AI to <em>draft the pattern</em>
+  if the names are gnarly, then apply it with the tool.</li>
+<li><strong>Finding duplicates by name/size/date.</strong> <code>fdupes</code>-style tools and folder
+  searches do this better, instantly, with zero hallucination.</li>
+<li><strong>Nothing about your Documents structure.</strong> Moving 200 curated files is a
+  job for Finder/Explorer and your own three homes.</li>
+</ul>
+<h2 id="where-it-will-hurt-you">Where it will hurt you</h2>
+<p>The trap is <strong>letting the model move or delete files by itself.</strong> Even a
+perfect local model occasionally misreads a PDF — and when your agent is
+holding <code>Documents</code> in one hand and <code>rm</code> in the other, "occasionally" translates
+to "someday, your only copy of your lease." Concretely:</p>
+<ul>
+<li><strong>Never run an auto-delete "suggestion" without a snapshot.</strong> If you want to
+  experiment, copy 50 files to a sandbox folder, let the AI triage the copies,
+  and compare. (Same placebo-snapshot safety net as <a href="06-the-rescue-plan.html">Chapter 6</a>.)</li>
+<li><strong>Scripts over agents for bulk actions.</strong> A shell script that moves <code>.exe</code>
+  files is dumb but <em>predictably</em> dumb. An LLM given delete permissions is
+  smart-but-unpredictable. For files, prefer predictability every time.</li>
+<li><strong>Don't send personal documents to cloud models.</strong> The entire reason for
+  <em>local</em> AI in this chapter is that insurance letters, IDs, and tax documents
+  never need to leave the laptop.   If a cloud model is the only AI you have,
+  triage by filename only — never contents.</li>
+</ul>
+<h2 id="the-honest-summary">The honest summary</h2>
+<p>Local AI earns its space where <strong>reading is the blocker</strong>: summarizing mystery
+documents, proposing names, drafting triage rules. It does not earn delete
+permissions. Think of it as a very fast intern who reads everything and
+recommends — never the one with hands on the filing cabinet. If you want a
+tool that implements the safe end of this spectrum (rules you control, decisions
+you confirm), that's exactly the design behind our companion project,
+local-file-organizer-cli.</p>
+</main>
+<footer>
+  <p class="pager"><a href="06-the-rescue-plan.html">← 6. Rescue Plan</a><span class="spacer"></span><a href="checklist-reset-day.html">Reset-Day Checklist →</a></p>
+  <p>A beginner-friendly guide from Asdale Dynamics, LLC · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a></p>
+</footer>
+</body>
+</html>
